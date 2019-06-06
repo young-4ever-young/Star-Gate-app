@@ -1,32 +1,42 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import { ifIphoneX } from 'react-native-iphone-x-helper'
 
-const Header = ({title}) =>{
-    const styles = StyleSheet.create({
-        viewStyle: {
-          backgroundColor: '#30d0fe',
-          height:116,
-          justifyContent:'center',
-          paddingLeft: 22,
-          paddingTop: 71,
-          shadowColor: '#000',
-          shadowOffset:{width:0, height: 2},
-          shadowOpacity: 2,
-          elevation: 2,
-          position: 'relative'
-        },
-        textStyle: {
-          color:'#fff',
-          fontSize: 28,
-          fontFamily: 'Avenir Next Condensed'
-        }
-      });
-    return (
-        <View style={styles.viewStyle}>
-          <Text style={styles.textStyle}>{title}</Text>
-        </View>
-    );
-    
+const Header = props => {
+  const { viewStyle, textStyle } = styles
+  return (
+    <View style={viewStyle}>
+      <Text style={textStyle}>{props.title}</Text>
+    </View>
+  )
 }
 
-export default Header;
+const styles = StyleSheet.create({
+  viewStyle: {
+    backgroundColor: '#30d0fe',
+    ...ifIphoneX({
+      height: 116
+    }, {
+      height: 90
+    }),
+    justifyContent: 'center',
+    paddingLeft: 22,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2},
+    shadowOpacity: 0.2,
+    elevation: 2,
+    position: 'relative'
+  },
+  textStyle: {
+    color: '#fff',
+    fontSize: 28,
+    fontFamily: 'AvenirNext-DemiBold',
+    ...ifIphoneX({
+      paddingTop: 75
+    }, {
+      paddingTop: 50
+    })
+  }
+})
+
+export { Header }
