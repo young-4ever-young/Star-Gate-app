@@ -11,7 +11,7 @@ const Header = props => {
   )
 }
 
-const styles = StyleSheet.create({
+ const styles = StyleSheet.create({
   viewStyle: {
     backgroundColor: '#30d0fe',
     ...ifIphoneX({

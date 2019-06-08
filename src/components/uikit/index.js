@@ -1,3 +1,3 @@
-export {ImageCard} from './ImageCard';
-export {Header} from './Header';
-export {Layout} from './Layout';
+export * from './Header';
+export * from './ImageCard';
+export * from './Layout';

@@ -24,5 +24,4 @@ const styles = StyleSheet.create({
     marginBottom: 150
   }
 })
-
 export { Layout }
